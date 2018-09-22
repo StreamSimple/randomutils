@@ -25,6 +25,14 @@ public class UniformListSampler
       throw new IllegalArgumentException("The sampleSize must be positive.");
     }
 
+    if (listSize < sampleSize) {
+      throw new IllegalArgumentException("The listSize is less than the sampleSize.");
+    }
+
+    if (listSize == sampleSize) {
+      throw new IllegalArgumentException("The listSize equals the sampleSize.");
+    }
+
     final int[] sampleIndices = new int[sampleSize];
 
     for (int currentIndexCount = 0; currentIndexCount < sampleSize;) {
