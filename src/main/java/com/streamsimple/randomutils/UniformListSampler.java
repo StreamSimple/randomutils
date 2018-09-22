@@ -17,7 +17,9 @@
  */
 package com.streamsimple.randomutils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class UniformListSampler
@@ -71,5 +73,17 @@ public class UniformListSampler
     }
 
     return sampleIndices;
+  }
+
+  public <T> List<T> sampleList(List<T> list, final int sampleSize)
+  {
+    int[] sampleIndices = sample(list.size(), sampleSize);
+    List<T> sample = new ArrayList<>(sampleSize);
+
+    for (int sampleIndex: sampleIndices) {
+      sample.add(list.get(sampleIndex));
+    }
+
+    return sample;
   }
 }
